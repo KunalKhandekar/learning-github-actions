@@ -1,0 +1,10 @@
+name: My first workflow
+on: [push, workflow_dispatch]
+jobs:
+  my-first-step:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create JS File
+        run: echo 'console.log("Hello World");' > app.js
+      - name: Run node file
+        run: node app.js

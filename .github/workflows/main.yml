@@ -8,3 +8,5 @@ jobs:
         run: echo 'console.log("Hello World");' > app.js
       - name: Run node file
         run: node app.js
+      - name: show ip
+        run: hostname -I

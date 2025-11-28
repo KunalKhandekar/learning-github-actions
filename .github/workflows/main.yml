@@ -1,12 +1,20 @@
-name: My first workflow
-on: [push, workflow_dispatch]
+name: Debug Runner
+
+on:
+  workflow_dispatch:
+
 jobs:
-  my-first-step:
+  debug:
     runs-on: ubuntu-latest
+    timeout-minutes: 360
+
     steps:
-      - name: create JS File
-        run: echo 'console.log("Hello World");' > app.js
-      - name: Run node file
-        run: node app.js
-      - name: show ip
-        run: hostname -I
+      - uses: actions/checkout@v4
+
+      - name: Start tmate session
+        uses: mxschmitt/action-tmate@v3
+
+      - name: Keep runner alive
+        run: |
+          echo "Runner is alive"
+          tail -f /dev/null

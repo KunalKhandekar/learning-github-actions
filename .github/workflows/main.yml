@@ -9,8 +9,6 @@ jobs:
     timeout-minutes: 360
 
     steps:
-      - uses: actions/checkout@v4
-
       - name: Start tmate session
         uses: mxschmitt/action-tmate@v3
 
